@@ -1,5 +1,7 @@
 
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -11,10 +13,11 @@ import java.net.SocketException;
 
 public class Slave implements Runnable{
     private  final Socket socket;
+    private File fichier;
     
-    Slave(Socket s){
+    Slave(Socket s, File fich){
         this.socket = s;
-        
+        this.fichier = fich;
     }
 
     @Override
@@ -26,8 +29,26 @@ public class Slave implements Runnable{
         	InputStreamReader isr = new InputStreamReader(is);
             BufferedReader input = new BufferedReader(isr);
             
+  		  	BufferedReader br = new BufferedReader(new FileReader(fichier)); 
+  		  	
+
+  		  String st; 
+  		  int i=0;
+  		  try {
+  			while ((st = br.readLine()) != null) {
+  				++i;
+  				for (i=1; i<11; i++)
+  					System.out.println(i+" - "+st);
+  			}
+  		  }
+  			catch (IOException e) {
+  				// TODO Auto-generated catch block
+  				e.printStackTrace();
+  			} 
+  		  	
+  		  	
             //Preparation des sorties
-            OutputStream os = socket.getOutputStream();
+            /*OutputStream os = socket.getOutputStream();
             PrintWriter pw = new PrintWriter(os, true);
             
             for(;;){
@@ -35,7 +56,7 @@ public class Slave implements Runnable{
 				while((req=input.readLine())!=null)
 					//String rep = ;
 					pw.println("Size = "+req.length());
-			}
+			}*/
 				
            
          }
