@@ -6,9 +6,9 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class Server {
-	private File fichier;
-	private int score;
-	private static int port;
+    private File fichier;
+    private int score;
+    private static int port;
     private static int poolSize;
     private boolean isFinished;
     
@@ -39,30 +39,13 @@ public class Server {
     }
     
     public void manageRequest(){
-         try {
-            for (;;){
-            	score=20;
-            	Socket s = serverSocket.accept();
-                pool.execute(new Slave(s)); 
-            }
-        } catch (IOException ex) { 
-            pool.shutdown(); 
-        }    
+        
 
     }
-    
-    public void isFished(){
-        if (isFinished)
-            System.out.println("End");
-    }
+  
 
 	public static void main(String[] args) {
-		 try {
-	            Server server = new Server(33333,10);
-	            server.manageRequest();
-	        } catch (IOException e) {
-	            System.out.println(e);
-	        }
+		
 
 	}
 
