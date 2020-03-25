@@ -17,6 +17,7 @@ public class Slave implements Runnable {
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub
+		//lecture du fichier.txt
 		try {
 			BufferedReader in = new BufferedReader(new FileReader("c:/test.txt"));
 			String line;
@@ -30,7 +31,7 @@ public class Slave implements Runnable {
 			
 		}catch(IOException e) {System.err.println(e);}
 		
-		
+		//calcul de la pertinence du message 
 		
 	}
 
