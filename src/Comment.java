@@ -1,4 +1,5 @@
-
+//XML dans Final-XML
+//Handler dans JavaD-up13
 public class Comment {
 	
 	private String dateC; //date du commentaire
