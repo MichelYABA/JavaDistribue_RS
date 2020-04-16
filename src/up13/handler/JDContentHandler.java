@@ -18,7 +18,7 @@ public class JDContentHandler extends ContentHandler {
 	}
 	
 	public static void setFile() throws IOException {
-		file="C:/eclipce amine/JavaD/src/up13/handler/reseauSocial.txt";
+		file="reseauSocial.txt";
 		InputStream in = new FileInputStream(file);
 		int b;
 		while ((b = in.read()) != -1) {
